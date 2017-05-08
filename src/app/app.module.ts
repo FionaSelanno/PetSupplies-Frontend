@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent} from './header/header.component';
 import {ProductListComponent} from "./productList/productList.component";
 import { ProductService} from "./product.service";
 
@@ -11,7 +12,8 @@ import { ProductService} from "./product.service";
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
