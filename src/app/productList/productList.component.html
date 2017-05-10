@@ -10,12 +10,14 @@
         <td>{{product.name}}</td>
         <td>{{product.description}}</td>
         <td>{{product.price}} euro</td>
-        <td><a href="#" class="btn btn-info btn-xs">
+        <td><a class="btn btn-info btn-xs" (click)=addProductToCart(product) style="cursor:pointer">
           <span class="glyphicon glyphicon-shopping-cart"></span> add to cart
         </a></td>
       </tr>
   </table>
 </div>
+
+<p style="text-align:right">{{productArray.length}}</p>
 
  <p>Voor bestellingen bel +31(0)20-2622161</p>
 
