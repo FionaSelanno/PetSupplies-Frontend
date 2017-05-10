@@ -1,0 +1,15 @@
+.navbar.navbar-default{
+    margin-top: 20px;
+    background-color: white;
+    border:none;
+    color: #5250A3;
+}
+
+.btn.btn-default.btn-lg{
+    margin-top: 10px;
+    margin-right:10px;
+}
+
+h1{
+    font-size: 5rem;
+}

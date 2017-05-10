@@ -4,19 +4,12 @@ import { ProductService } from "app/product.service";
 @Component({
   selector: 'app-productList',
   templateUrl: './productList.component.html',
-  styles: [`
-    p{ 
-      color:#5250A3;
-      font-size: 20px;
-    }
-    th{
-      color: #66AC05;
-    }
-  `]
+  styleUrls: ['./productList.component.css']
 })
 
 export class ProductListComponent implements OnInit{
     products = [];
+    productArray = [];
 
   constructor(private productService: ProductService) {}//to inject the ProductService component
   ngOnInit(){this.getProducts()};
@@ -28,6 +21,11 @@ export class ProductListComponent implements OnInit{
      this.products = products}, // import Response from @angular/http
      (error) => console.log(error)
    );
+  };
+
+  addProductToCart(product){
+    this.productArray.push(product);
+    console.log(this.productArray.length);
   };
 }
   
