@@ -1,0 +1,11 @@
+.navbar.navbar-default{
+    margin-top: 20px;
+    background-color: white;
+    border:none;
+}
+
+.btn.btn-default.btn-lg{
+    margin-top: 10px;
+    margin-right:10px;
+}
+
