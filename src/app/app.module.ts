@@ -2,13 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent} from './header/header.component';
 import {ProductListComponent} from "./productList/productList.component";
 import { ProductService} from "./product.service";
 
-
+const appRoutes: Routes = [
+  {path: 'products', component: ProductListComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,8 @@ import { ProductService} from "./product.service";
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
