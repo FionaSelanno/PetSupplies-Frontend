@@ -9,7 +9,7 @@
     <tr *ngFor="let product of products; let i = index">
         <td>{{product.name}}</td>
         <td>{{product.description}}</td>
-        <td>{{product.price}} euro</td>
+        <td>{{product.price | currency: 'EUR':true}}</td>
         <td><a class="btn btn-info btn-xs" (click)=addProductToCart(product) style="cursor:pointer">
           <span class="glyphicon glyphicon-shopping-cart"></span> add to cart
         </a></td>
@@ -17,7 +17,8 @@
   </table>
 </div>
 
-<p style="text-align:right">{{productArray.length}}</p>
+<p style="text-align:right">Aantal producten in mandje: <span>{{productArray.length}}</span></p>
+<p style="text-align:right">Totale prijs: <span>{{totalPrice | currency:'EUR':true}}</span></p>
 
  <p>Voor bestellingen bel +31(0)20-2622161</p>
 
