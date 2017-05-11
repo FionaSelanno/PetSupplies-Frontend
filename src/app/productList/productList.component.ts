@@ -10,6 +10,8 @@ import { ProductService } from "app/product.service";
 export class ProductListComponent implements OnInit{
     products = [];
     productArray = [];
+    totalPrice = 0;
+    
 
   constructor(private productService: ProductService) {}//to inject the ProductService component
   ngOnInit(){this.getProducts()};
@@ -26,6 +28,11 @@ export class ProductListComponent implements OnInit{
   addProductToCart(product){
     this.productArray.push(product);
     console.log(this.productArray.length);
-  };
+    for (let pr of this.productArray){
+    console.log(pr.price)
+    console.log(this.totalPrice =this.totalPrice + pr.price)
+      
+    }
+  }; 
 }
   
