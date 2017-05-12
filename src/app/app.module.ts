@@ -5,12 +5,16 @@ import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent} from './header/header.component';
-import {ProductListComponent} from "./productList/productList.component";
-import { ProductService} from "./product.service";
+import { HeaderComponent } from './header/header.component';
+import { ProductListComponent } from "./productList/productList.component";
+import { ProductService } from "./product.service";
+import { CustomerService } from "./customer.service";
 
 const appRoutes: Routes = [
-  {path: 'products', component: ProductListComponent}
+  { path: 'webshop/products', component: ProductListComponent },
+  { path: '', redirectTo: 'webshop/products', pathMatch: 'full' },
+  { path: '**', redirectTo: 'webshop/products', pathMatch: 'full'}
+  // {patj}
 ];
 @NgModule({
   declarations: [
@@ -24,7 +28,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ProductService],
+  providers: [ProductService, CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
