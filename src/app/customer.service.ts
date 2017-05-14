@@ -1,4 +1,3 @@
-
 export class CustomerService{
     productArray = [];
     totalPrice = 0;
@@ -18,7 +17,11 @@ export class CustomerService{
     this.totalPrice = totalAmount; 
   };
 
-  totalProducts(){
-    return this.productArray.length;
-  }
+  products() {
+    return this.productArray;
+  };
+
+  // totalProducts(){
+  //   return this.productArray.length;
+  // }
 }

@@ -14,7 +14,6 @@ const appRoutes: Routes = [
   { path: 'webshop/products', component: ProductListComponent },
   { path: '', redirectTo: 'webshop/products', pathMatch: 'full' },
   { path: '**', redirectTo: 'webshop/products', pathMatch: 'full'}
-  // {patj}
 ];
 @NgModule({
   declarations: [

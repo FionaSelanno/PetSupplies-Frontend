@@ -11,7 +11,6 @@ export class ProductListComponent implements OnInit{
     products = [];
     productArray = [];
     totalPrice = 0;
-    
 
   constructor(private ps: ProductService, private cs: CustomerService) {}//to inject the ProductService component
   ngOnInit(){this.getProducts()};
