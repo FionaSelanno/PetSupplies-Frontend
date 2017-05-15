@@ -6,11 +6,11 @@
       <th>Prijs</th>
     </tr>
 
-    <tr *ngFor="let product of products; let i = index">
+    <tr *ngFor="let product of productList; let i = index">
         <td>{{product.name}}</td>
         <td>{{product.description}}</td>
         <td>{{product.price | currency: 'EUR':true}}</td>
-        <td><a class="btn btn-info btn-xs" (click)=addProductToCart(product) style="cursor:pointer">
+        <td><a class="btn btn-info btn-xs" (click)=onAddProduct(product) style="cursor:pointer">
           voeg toe aan <span class="glyphicon glyphicon-shopping-cart"></span>
         </a></td>
       </tr>
