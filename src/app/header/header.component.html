@@ -10,7 +10,10 @@
           <span class="glyphicon glyphicon-shopping-cart"></span>
           </button>
         </li>
-        <li>{{nrOfProducts}}</li>
+        <li *ngIf = "nrOfProducts ===0; else nrProducts"></li>
+        <ng-template #nrProducts>
+          <li> {{nrOfProducts}}</li>
+        </ng-template>
         <!--<li>{{totalAddedProducts()}}</li>-->
       </ul>
     </div>
