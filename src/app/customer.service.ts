@@ -2,7 +2,7 @@ export class CustomerService{
     productArray = [];
     totalPrice = 0;
 
-    addProducts(product){
+    addedProducts(product){
     this.productArray.push(product);
     console.log(this.productArray);
     this.totalAmount();
@@ -14,7 +14,7 @@ export class CustomerService{
             totalAmount = totalAmount+ pr.price;
     }
     console.log(totalAmount);
-     return this.totalPrice = totalAmount; 
+    this.totalPrice = totalAmount; 
   };
 
   products() {

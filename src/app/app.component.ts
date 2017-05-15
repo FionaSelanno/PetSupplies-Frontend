@@ -1,21 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService} from './product.service';
-import {CustomerService} from './customer.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [CustomerService]
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  products = [];
-
-  constructor( private cs: CustomerService) {}//to inject the ProductService component
+export class AppComponent{
   
-  ngOnInit(){
-    this.products = this.cs.productArray;
-  }
 
- 
 }
