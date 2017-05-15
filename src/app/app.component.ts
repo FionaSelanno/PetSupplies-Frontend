@@ -7,6 +7,5 @@ import { ProductService} from './product.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  
 
 }
