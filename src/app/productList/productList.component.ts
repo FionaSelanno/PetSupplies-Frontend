@@ -17,10 +17,12 @@ export class ProductListComponent implements OnInit {
   private subject = new Subject<any>();
 
   constructor(private ps: ProductService, private cs: CustomerService) { 
+    //  this.cs.test();
     
   }//to inject the ProductService component
   ngOnInit() { 
     this.getProducts()
+    this.cs.test();
    };
 
   getProducts() {
