@@ -16,8 +16,12 @@ export class ProductListComponent implements OnInit {
   totalPrice = this.cs.totalPrice;
   private subject = new Subject<any>();
 
-  constructor(private ps: ProductService, private cs: CustomerService) { }//to inject the ProductService component
-  ngOnInit() { this.getProducts() };
+  constructor(private ps: ProductService, private cs: CustomerService) { 
+    
+  }//to inject the ProductService component
+  ngOnInit() { 
+    this.getProducts()
+   };
 
   getProducts() {
     return this.ps.getProducts().subscribe(
