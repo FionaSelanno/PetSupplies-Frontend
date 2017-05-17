@@ -8,11 +8,13 @@ import { CoolStorageModule } from 'angular2-cool-storage';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ProductListComponent } from "./productList/productList.component";
+import { ShoppingcartComponent } from "./shoppingcart/shoppingcart.component";
 import { ProductService } from "./product.service";
 import { CustomerService } from "./customer.service";
 
 const appRoutes: Routes = [
   { path: 'webshop/products', component: ProductListComponent },
+  { path: 'webshop/shoppingcart', component: ShoppingcartComponent},
   { path: '', redirectTo: 'webshop/products', pathMatch: 'full' },
   { path: '**', redirectTo: 'webshop/products', pathMatch: 'full'}
 ];
@@ -20,7 +22,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ProductListComponent,
-    HeaderComponent
+    HeaderComponent,
+    ShoppingcartComponent
   ],
   imports: [
     BrowserModule,
