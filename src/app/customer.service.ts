@@ -8,7 +8,7 @@ export class CustomerService{
  
   // localStorage: LocalStorage;
   private subject = new Subject<any>();
-  productArray = [];
+  productArray = []; //all selected products
   totalPrice = 0;
 
   // constructor(localStorage: LocalStorage){
@@ -17,7 +17,7 @@ export class CustomerService{
   //   console.log(this.localStorage);
   // }
 
-  test(){
+  sessionAddProducts(){
     console.log("test");
       if(sessionStorage.getItem( 'products') === null || sessionStorage.getItem('products') === undefined){
             console.log('No markers found...creating...');
@@ -25,7 +25,8 @@ export class CustomerService{
     } else { 
       var stringResult = sessionStorage.getItem('products');
       this.productArray = JSON.parse(stringResult);
-      this.totalPrice = this.productArray.length;
+      this.subject.next({products: this.productArray }); //updates the Observable
+
 }
     // console.log(this.sessionStorage.getItem('markers'));
   }
@@ -36,17 +37,8 @@ export class CustomerService{
      sessionStorage.setItem('products', JSON.stringify(this.productArray));
     // console.log('fetched'+ JSON.parse(sessionStorage.getItem('markers')));
     console.log(sessionStorage.getItem('products'));
-    this.totalAmount();
-    this.subject.next({totaal: this.productArray.length }); //updates the Observable
-  };
-
-  totalAmount() {
-    var totalAmount = 0;
-    for (let pr of this.productArray) {
-      totalAmount = totalAmount + pr.price;
-    }
-    console.log(totalAmount);
-    this.totalPrice = totalAmount;
+    //this.totalAmount();
+    this.subject.next({products: this.productArray }); //updates the Observable
   };
 
   getMessage(): Observable<any> {
