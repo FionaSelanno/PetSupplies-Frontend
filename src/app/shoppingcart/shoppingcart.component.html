@@ -6,15 +6,20 @@
       <th>Prijs</th>
     </tr>
 
-    <tr *ngFor="let product of products; let i = index">
+    <tr *ngFor="let product of productsInCart; let i = index">
         <td>{{product.name}}</td>
         <td>{{product.description}}</td>
         <td>{{product.price | currency: 'EUR':true}}</td>
+        <td><span class = "btn glyphicon glyphicon-trash" (click)=deleteProduct(i)></span></td> 
       </tr>
   </table>
 </div>
 
-<p style="text-align:right">Totale prijs: <span>{{totalPrice | currency:'EUR':true}}</span></p>
+<p style="text-align:right">Totale prijs: <span>{{totalPriceOrder | currency:'EUR':true}}</span></p>
 
- <p>Voor bestellingen bel +31(0)20-2622161</p>
- <p>of mail naar info@petsupplies.nl</p>
+ <div style="font-size: 20px; color: #5250A3">Voor bestellingen kunt u ons contacteren: 
+     <p style="margin-top: 12px">
+        <span class = "glyphicon glyphicon-phone-alt"></span> +31(0)20-2622161 
+        <br><span class = "glyphicon glyphicon-envelope"></span> info@petsupplies.nl
+    </p> 
+ </div>
