@@ -4,16 +4,25 @@
       <h1>PetSupplies</h1>
     </div>
     <ul class="nav navbar-nav navbar-right" style= "margin-top: 15px;">
-    
-      <li>
-        <a routerLink="/webshop/shoppingcart" class="glyphicon glyphicon-shopping-cart" style="font-size: 3em"></a>
+      <li *ngIf = "router.url === '/webshop/shoppingcart'; else productList"> 
+        <a routerLink= "/webshop/products" style="color: white">
+          <button type="button" class= "btn btn-default" style="background-color:#66AC05;  margin-top: 10px; font-size: 1.5em; color: white">
+            Assortiment
+          </button>
+        </a>
       </li>
-      <li *ngIf = "nrOfProducts ===0; else nrProducts"></li>
-      <ng-template #nrProducts>
-        <li style= "font-size: 2em; margin-top: 15px"> {{nrOfProducts}}</li>
+      <ng-template #productList>
+        <li>
+          <a routerLink="/webshop/shoppingcart" class="glyphicon glyphicon-shopping-cart" style="font-size: 3em"></a>
+        </li>
+        <li *ngIf = "nrOfProducts ===0; else nrProducts"></li>
+        <ng-template #nrProducts>
+          <li style= "font-size: 2em; margin-top: 15px"> {{nrOfProducts}}</li>
+        </ng-template>
       </ng-template>
+    
+      
     </ul>
   </div>
 </nav>
 
- 

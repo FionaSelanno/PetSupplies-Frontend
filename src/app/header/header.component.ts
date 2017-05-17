@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService} from 'app/customer.service';
 import { Subscription} from 'rxjs/subscription'
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-header',
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit{
     nrOfProducts = this.cs.productArray.length;
     
 
-    constructor(private cs:CustomerService ){
+    constructor(private router: Router, private cs:CustomerService ){
     //subscribed aan de observable als die veranderd wordt dit geupdate
     this.subscription = this.cs.getMessage()
     .subscribe(response => { 
