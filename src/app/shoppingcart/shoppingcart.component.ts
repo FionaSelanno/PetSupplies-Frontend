@@ -4,12 +4,35 @@ import { CustomerService } from 'app/customer.service';
 
 @Component({
     selector: 'app-shoppingcart',
-    templateUrl: './shoppingcart.component.html'
+    templateUrl: './shoppingcart.component.html',
+    styleUrls: ['./shoppingcart.component.css']
 })
 
 export class ShoppingcartComponent {
-    products: Product[]=this.cs.productArray;
+    productsInCart: Product[]=this.cs.productArray;
+    totalPriceOrder: number = 0;
 
-    constructor(private cs: CustomerService){}
+    constructor(private cs: CustomerService){
+        this.totalAmount();
+    }
+
+    deleteProduct(i){
+       this.productsInCart.splice(i,1);
+       this.totalAmount();
+       this.cs.productArray = this.productsInCart;
+    }
+
+     totalAmount() {
+        var totalAmount = 0;
+        for (let pr of this.productsInCart) {
+        totalAmount = totalAmount + pr.price;
+        }
+        console.log(totalAmount);
+        this.totalPriceOrder = totalAmount;
+    };
+
+    displayProducts(){
+        // if 
+    }
 
 }

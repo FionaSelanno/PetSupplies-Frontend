@@ -24,8 +24,8 @@ export class ProductListComponent implements OnInit {
         this.productsInCart = response.products;
         this.totalAmount()
         console.log(this.productsInCart) });  
-
   }//to inject the ProductService component
+
   ngOnInit() { 
     this.getProducts();
     this.cs.sessionAddProducts();
