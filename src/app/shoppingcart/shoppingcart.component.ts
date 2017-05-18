@@ -19,7 +19,7 @@ export class ShoppingcartComponent {
     deleteProduct(i){
        this.productsInCart.splice(i,1);
        this.totalAmount();
-       this.cs.productArray = this.productsInCart;
+       sessionStorage.setItem('newProductsArray', JSON.stringify(this.productsInCart))
     }
 
      totalAmount() {
