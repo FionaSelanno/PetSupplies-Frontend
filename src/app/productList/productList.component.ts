@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { ProductService } from "app/product.service";
 import { CustomerService } from "app/customer.service";
 import { Product } from "../models/product.model";
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { Subject } from 'rxjs/Subject';
 
 @Component({
@@ -12,12 +12,24 @@ import { Subject } from 'rxjs/Subject';
 })
 
 export class ProductListComponent implements OnInit {
-  products: Product[] = [];
-  totalPrice = this.cs.totalPrice;
+  subscription: Subscription;
+  products: Product[] = []; //all products from database
+  productsInCart = [];
+  totalPrice = 0;
   private subject = new Subject<any>();
 
-  constructor(private ps: ProductService, private cs: CustomerService) { }//to inject the ProductService component
-  ngOnInit() { this.getProducts() };
+  constructor(private ps: ProductService, private cs: CustomerService) { 
+    this.subscription = this.cs.getMessage()
+    .subscribe(response => { 
+        this.productsInCart = response.products;
+        this.totalAmount()
+        console.log(this.productsInCart) });  
+  }//to inject the ProductService component
+
+  ngOnInit() { 
+    this.getProducts();
+    this.cs.sessionAddProducts();
+   };
 
   getProducts() {
     return this.ps.getProducts().subscribe(
@@ -36,6 +48,11 @@ export class ProductListComponent implements OnInit {
   };
 
   totalAmount() {
-    this.totalPrice = this.cs.totalPrice
+    var totalAmount = 0;
+    for (let pr of this.productsInCart) {
+      totalAmount = totalAmount + pr.price;
+    }
+    console.log(totalAmount);
+    this.totalPrice = totalAmount;
   };
 }

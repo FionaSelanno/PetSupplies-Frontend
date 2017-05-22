@@ -10,15 +10,11 @@
         <td>{{product.name}}</td>
         <td>{{product.description}}</td>
         <td>{{product.price | currency: 'EUR':true}}</td>
-        <td><a class="btn btn-info btn-xs" (click)=addProductToCart(product) style="cursor:pointer">
+        <td><a class="btn btn-info btn-xs" (click)="addProductToCart(product)" style="cursor:pointer">
           voeg toe aan <span class="glyphicon glyphicon-shopping-cart"></span>
         </a></td>
       </tr>
   </table>
 </div>
-
-<p style="text-align:right">Totale prijs: <span>{{totalPrice | currency:'EUR':true}}</span></p>
-
- <p>Voor bestellingen bel +31(0)20-2622161</p>
 
 
